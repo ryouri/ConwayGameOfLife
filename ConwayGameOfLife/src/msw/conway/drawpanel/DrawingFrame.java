@@ -1,20 +1,18 @@
 package msw.conway.drawpanel;
 
-import java.awt.Container;
-
 import javax.swing.JFrame;
 
 public class DrawingFrame extends JFrame {
 	DrawingPanel drawingPanel;
-	
+
     public DrawingFrame() {
     	init();
     }
-    
+
     private void init() {
         setTitle("Conway's Game of Life");
 
-        drawingPanel = new DrawingPanel();
+        drawingPanel = new DrawingPanel(this);
         this.getContentPane().add(drawingPanel);
 
         pack();

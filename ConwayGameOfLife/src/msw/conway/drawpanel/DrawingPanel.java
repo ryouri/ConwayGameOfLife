@@ -10,14 +10,17 @@ import msw.conway.lifegame.DrawingGame;
 public class DrawingPanel extends JPanel {
     private static final int PANEL_WIDTH = 240;
     private static final int PANEL_HEIGHT = 240;
-    
-    DrawingGame drawingGame;
 
-    public DrawingPanel() {
+    DrawingGame drawingGame;
+    DrawingFrame drawingFrame;
+
+    public DrawingPanel(DrawingFrame drawingFrame) {
+    	this.drawingFrame = drawingFrame;
     	init();
     }
-    
-    private void init() {
+
+
+	private void init() {
         setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
         drawingGame = null;
     }
@@ -28,8 +31,10 @@ public class DrawingPanel extends JPanel {
         	drawingGame.drawGame(g);
         }
     }
-    
+
     public void setDrawingGame(DrawingGame drawingGame) {
     	this.drawingGame = drawingGame;
+        setPreferredSize(new Dimension(drawingGame.getDrawableWidth(), drawingGame.getDrawableHeight()));
+        drawingFrame.pack();
     }
 }
