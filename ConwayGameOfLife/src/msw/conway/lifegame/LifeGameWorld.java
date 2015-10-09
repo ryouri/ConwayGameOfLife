@@ -10,7 +10,7 @@ public class LifeGameWorld {
 	private boolean[][] lifeArray;
 	private boolean[][] tempLifeArray;
 
-	private int generatedRate = 30;
+	private int generatedRate = 90;
 
 	int[][] aroundArray = {
 			{-1,  0},

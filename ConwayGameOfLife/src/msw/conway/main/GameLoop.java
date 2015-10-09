@@ -7,6 +7,9 @@ public class GameLoop implements Runnable{
 	DrawingPanel drawingPanel;
 	LifeGame lifeGame;
 
+	long startTime;
+	long nowTime;
+
 	public GameLoop(DrawingPanel drawingPanel) {
 		this.drawingPanel = drawingPanel;
 		init();
@@ -15,6 +18,7 @@ public class GameLoop implements Runnable{
 	private void init() {
 		this.lifeGame = new LifeGame();
 		this.drawingPanel.setDrawingGame(lifeGame.getDrawingGame());
+		startTime = System.currentTimeMillis();
 	}
 
 	@Override
@@ -26,10 +30,14 @@ public class GameLoop implements Runnable{
 			drawingPanel.repaint();
 
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(5);
 			} catch (InterruptedException e) {
 				System.err.println("Class:GameLoop Thread.sleep() Error");
 				e.printStackTrace();
+			}
+
+			if (System.currentTimeMillis() - startTime >= 60000) {
+				init();
 			}
 		}
 	}
