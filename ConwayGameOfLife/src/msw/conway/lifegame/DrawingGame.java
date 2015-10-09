@@ -17,6 +17,17 @@ public class DrawingGame {
 	public void drawGame(Graphics g) {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, drawableWidth, drawableHeight);
+
+		g.setColor(Color.WHITE);
+		for (int y = 0; y < lifeArray.length; y++) {
+			for (int x = 0; x < lifeArray[y].length; x++) {
+				if (!lifeArray[y][x]) {
+					continue;
+				}
+				g.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize);
+				System.out.print("*");
+			}
+		}
 	}
 
 	public void setSize(int panelWidth, int panelHeight) {
