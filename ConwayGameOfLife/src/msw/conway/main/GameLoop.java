@@ -30,7 +30,7 @@ public class GameLoop implements Runnable{
 			drawingPanel.repaint();
 
 			try {
-				Thread.sleep(5);
+				Thread.sleep(8);
 			} catch (InterruptedException e) {
 				System.err.println("Class:GameLoop Thread.sleep() Error");
 				e.printStackTrace();
